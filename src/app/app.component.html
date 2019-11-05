@@ -1,11 +1,22 @@
-<div>
-  <h2>{{ 'HOME.TITLE' | translate }}</h2>
-    <p>{{'HOME.SLOGAN' | translate}}</p>
-    <label for="">
-      {{'HOME.LABEL' | translate}}
-      <select #langeselect (change)="translate.use(langeselect.value)">
-        <option *ngFor="let lang of translate.getLangs()" [value]="lang"><h4>{{lang}}</h4></option>
-      </select>
-    </label>  
+<div class="container mt-5">
+  <div class="jumbotron">
+    <h2>{{ 'HOME.TITLE' | translate }}</h2>
+    <p>{{'HOME.SLOGAN' | translate}}</p>    
+    <div class="row">
+     <div class="col-md-4"></div>
+     <div class="col-md-4">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">{{'HOME.LABEL' | translate}}</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" #langeselect (change)="translate.use(langeselect.value)">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{lang}}</option>
+        </select>
+      </div>
+     </div>
+     <div class="col-md-4"></div>
+    </div>
+  </div>
 </div>
+
 <router-outlet></router-outlet>
